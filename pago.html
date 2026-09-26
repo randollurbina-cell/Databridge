@@ -1,0 +1,43 @@
+<!-- interfaz de pago con html-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Databridge</title>
+        <link rel="stylesheet" href="Estilo.css">
+         <link rel="icon" href="Databridge.jpeg" type="jpeg">
+    </head>
+        <body>
+             <h1>Databridge Premium</h1>
+            <h2> Accede a todas las funciones de databridge</h2>
+        <div class="funciones">
+           <h1> Funciones:</h1>
+            <p>-Historial con guardado sin limite</p>
+            <p> -Acceso a todos los tipos de conversion de archivo</p>
+            <p> -Cantidad de conversiones sin limite</p>
+        </div>
+        <div class="pago">
+            <h1>Formulario de pago</h1>
+            <form action = "Backend_pago.php" method = "post">
+          <label> Nombre en la tarjeta</label>
+          <br>
+          <input type="text" name = "nombre_tarjeta" placeholder="Ingrese el nombre" required>
+          <br><br>
+          <label>Numero de tarjeta</label>
+          <br>
+          <input type="password" name = "numero_tarjeta" placeholder=" ingrese numero de tarjeta" id="Contraseña" required>
+          <br><br>
+          <label>MM/AA</label>
+          <br>
+          <input type="text" name = "fecha_vencimiento" placeholder="ingrese MM/AA" required>
+          <br><br>
+          <label>Codigo de seguridad</label>
+          <br>
+          <input type="password" name = "codigo_seguridad" placeholder="ingrese el codigo de seguridad" id="codigo" required>
+          <br><br>
+          <input type="submit" class="botonpago"  value="Pagar">
+        </div>
+        </form>
+        </body>
+</html>

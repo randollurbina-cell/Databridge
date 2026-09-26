@@ -1,0 +1,29 @@
+<!-- interfaz para tipos de plan -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Databridge</title>
+        <link rel="stylesheet" href="Estilo.css">
+         <link rel="icon" href="Databridge.jpeg" type="jpeg">
+    </head>
+    <body>
+    <div Class="Planes">
+    <img src="Databridge.jpeg" width="100" class="logo">
+        <h1>Planes Databridge</h1>
+        <form action = "Backend_Seleccionplan.php" method = "post">
+        <label class="planP">  Plan Premium  </label>
+        <br><br> 
+        <input type="hidden" name="Plan" value="Plan Premium">
+        <input type="submit" class="botonPlanes" value="Plan premium">
+        <br><br><br>
+        </form>
+        <form action = "Backend_Seleccionplan.php" method = "post">
+        <label class="planG">Plan gratis</label>
+        <br><br>
+        <input type="hidden" name="Plan" value="Plan gratis">
+        <input type="submit" class="botonPlanes" value="Plan gratis">
+        </form>
+    </div>
+    </body>
+</html>

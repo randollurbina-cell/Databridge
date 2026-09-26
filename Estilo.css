@@ -1,0 +1,441 @@
+/* Este codigo corresponde al estilo de css*/
+
+body{
+    background-image: url(Garrobo.jpeg);
+    text-align:center;
+} 
+
+
+
+.registro{
+    background-color: #cecece;
+    border: 2px solid #00ff4c;
+    box-shadow: 8px 8px 10px #00ff66;
+    border-radius: 20px;
+    width: 250px;
+    height: auto;
+    margin: 100px auto;
+    padding: 100px;
+    align-items: center;
+}
+
+select{
+    border: 3px solid #00e6d6;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.ver{
+    width: 20px;
+    cursor: pointer;
+}
+
+.ver2{
+    width: 20px;
+    cursor: pointer;
+}
+
+.Crear{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Crear:active{
+    transform: translateY(2px);
+    box-shadow: 2px 2px 5px #00e6d6;
+}
+
+
+.logo{
+    border: 2px solid #00e6d6;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #03ecf8;
+}
+
+input{
+    border: 3px solid #00e6d6;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.aceptar{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aceptar:active{
+    transform: translateY(2px);
+    box-shadow: 2px 2px 5px #00e6d6;
+}
+
+.Bienvenida{
+    background-color: #cecece ;
+    border:2px solid #00ff40;
+    box-shadow: 8px 8px 10px  #00ff1e;
+    border-radius: 10px;
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+}
+
+.Login{
+    background-color: #cecece;
+    border:2px solid #00ff2a;
+    box-shadow: 8px 8px 10px #00ff48;
+    border-radius: 10px;
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+}
+
+
+.ver3{
+    width: 20px;
+    cursor: pointer;
+}
+
+.botonBienvenida{
+ background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonBienvenida:active{
+  transform: translateY(2px);
+    box-shadow: 2px 3px 5px #00e6d6;
+
+}
+
+.Planes{
+    background-color: #cecece;
+    border:2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+}
+
+.botonPlanes{
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonPlanes:active{
+    transform: translateY(2px);
+    box-shadow: 2px 3px 5px #00e6d6;
+}
+
+.planP{
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #03ecf8;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.planG{
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #03ecf8;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.funciones{
+    background-color: #cecece;
+    border:2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.pago{
+    background-color: #cecece;
+    border: 2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.botonpago{
+     background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonpago:active{
+    transform: translateY(2px);
+    box-shadow: 2px 3px 5px #00e6d6;
+}
+
+.navbar {
+    background-color: #cecece;
+    border-bottom: 2px solid #3700ff;
+    box-shadow: 0px 4px 10px #3700ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titulo-navbar {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar-derecha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.botonNavbar {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.botonNavbar:active {
+    transform: translateY(2px);
+    box-shadow: 2px 3px 5px #00e6d6;
+}
+
+.aceptar{
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #00e6d6;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.aceptar:active{
+     transform: translateY(2px);
+    box-shadow: 2px 3px 5px #00e6d6;
+}
+
+/* MENU DESPLEGABLE DE PERFIL */
+.contenedor-perfil {
+    position: relative;
+}
+
+.dropdown-perfil {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #cecece;
+    border: 2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: left;
+    z-index: 100;
+}
+
+/* VENTANA PRINCIPAL */
+.ventana {
+    background-color: #cecece;
+    border: 2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    width: 800px;
+    margin: 40px auto;
+    padding-bottom: 20px;
+}
+
+.ventana-barra {
+    background-color: #3700ff;
+    border-radius: 8px 8px 0px 0px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ventana-titulo {
+    color: white;
+    font-weight: bold;
+}
+
+.ventana-controles {
+    display: flex;
+    gap: 6px;
+}
+
+.boton-ventana {
+    border: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    font-size: 8px;
+    padding: 0;
+}
+
+/* AREA DE TRABAJO - DOS COLUMNAS */
+.area-trabajo {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.caja-archivo {
+    background-color: #cecece;
+    border: 2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    width: 340px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* ZONA DE ARCHIVO (interior de cada caja) */
+.zona-archivo {
+    border: 2px solid #0800ff;
+    border-radius: 10px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SELECT */
+.select-formato {
+    border: 3px solid #00e6d6;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+/* BARRA DE ACCIONES INFERIOR */
+.barra-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px 0px 20px;
+}
+
+/* MODAL DE HISTORIAL */
+.fondo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000060;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal {
+    background-color: #cecece;
+    border: 2px solid #3700ff;
+    box-shadow: 8px 8px 10px #3700ff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 650px;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* TABLA DEL HISTORIAL */
+.tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.tabla-historial th {
+    background-color: #3700ff;
+    color: white;
+    padding: 10px;
+}
+
+.tabla-historial td {
+    border: 1px solid #3700ff;
+    padding: 10px;
+}
+
+.tabla-historial tr:nth-child(even) {
+    background-color: #d8d8d8;
+}
+
+.registro2{
+    background-color: #cecece;
+    border: 2px solid #00ff08;
+    box-shadow: 8px 8px 10px #00ff77;
+    border-radius: 20px;
+    width: 250px;
+    height: auto;
+    margin: 100px auto;
+    padding: 100px;
+    align-items: center;
+}
+
+.premium{
+  background-image: url("premium.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+

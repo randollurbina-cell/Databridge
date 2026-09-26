@@ -1,0 +1,138 @@
+<!--Interfaz principal databridge para usuarios gratis-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Databridge</title>
+        <link rel="stylesheet" href="Estilo.css">
+        <link rel="icon" href="Databridge.jpeg" type="jpeg">
+    </head>
+    <body>
+
+        <!-- BARRA DE NAVEGACION -->
+        <div class="navbar">
+            <div class="navbar-izquierda">
+                <img src="Databridge.jpeg" width="40" class="logo">
+                <span class="titulo-navbar">Databridge</span>
+            </div>
+            <div class="navbar-derecha">
+                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='flex'">Historial</button>
+                <a href="plan.html"><button type="button" class="botonNavbar">Cambiar Plan</button></a>
+
+                <!-- MENU PERFIL -->
+                <div class="contenedor-perfil">
+                    <button type="button" class="botonNavbar" onclick="togglePerfil()">Mi Perfil ▾</button>
+                    <div class="dropdown-perfil" id="dropdown-perfil" style="display:none">
+                        <p><b>Nombre:</b> Usuario</p>
+                        <p><b>Cargo:</b> Cargo</p>
+                        <p><b>Empresa:</b> Empresa</p>
+                        <br>
+                        <a href="login.html"><button type="button" class="botonNavbar">Cerrar Sesion</button></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+            <!-- AREA DE TRABAJO: DOS COLUMNAS -->
+            <div class="area-trabajo">
+
+                <!-- COLUMNA IZQUIERDA: ORIGINAL -->
+                <div class="caja-archivo">
+                    <h3>Original</h3>
+                    <label>Formato de entrada</label>
+                    <br><br>
+                    <select class="select-formato">
+                        <option value="">Selecciona formato</option>
+                        <option value="word">Word </option>
+                        <option value="pdf">PDF </option>
+                        <option value="excel">Excel </option>
+                        <option value="ppt">PowerPoint </option>
+                    </select>
+                    <br><br>
+
+                    <!-- Zona de adjuntar archivo -->
+                    <div class="zona-archivo">
+                        <br>
+                        <p>Arrastra tu archivo aqui</p>
+                        <p>o</p>
+                        <button type="button" class="botonNavbar">Adjuntar Archivo</button>
+                        <br><br>
+                    </div>
+
+                    <br>
+                    <label>Tamaño: 0 MB</label>
+                    <br><br>
+                </div>
+                                    <button type="button"class="aceptar">Aceptar</button>
+
+
+                <!-- COLUMNA DERECHA: DESTINO -->
+                <div class="caja-archivo">
+                    <h3>Destino</h3>
+                    <label>Formato de salida</label>
+                    <br><br>
+                    <select class="select-formato">
+                        <option value="">Selecciona conversion</option>
+                        <option value="word-pdf"> PDF</option>
+                        <option value="pdf-word"> Word</option>
+                        <option value="word-excel"> Excel</option>
+                        <option value="excel-word"> Word</option>
+                        <option value="pdf-ppt">PowerPoint</option>
+                        <option value="ppt-pdf"> PDF</option>
+                    </select>
+                    <br><br>
+
+                    <!-- Zona de vista previa -->
+                    <div class="zona-archivo">
+                        <br>
+                        <p>El archivo convertido</p>
+                        <p>aparecera aqui</p>
+                        <br><br>
+                    </div>
+
+                    <br>
+                    <label>Tamaño: 0 MB</label>
+                </div>
+
+            </div>
+
+            <!-- BOTONES DE ACCION -->
+            <div class="barra-acciones">
+                <button type="button" class="botonNavbar">Vista Previa</button>
+                <button type="button" class="botonNavbar">Guardar</button>
+                <button type="button" class="botonNavbar">Compartir</button>
+                <button type="button" class="botonNavbar">Descargar</button>
+            </div>
+
+        </div>
+
+
+        <!-- HISTORIAL -->
+        <div class="fondo-modal" id="modal-historial" style="display:none">
+            <div class="modal">
+                <h2>Historial de Transformaciones</h2>
+                <br>
+                <table class="tabla-historial">
+                </table>
+                <br>
+                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='none'">Cerrar</button>
+            </div>
+        </div>
+
+
+        <!-- Script para abrir y cerrar el menu de perfil -->
+        <script>
+            function togglePerfil() {
+                let menu = document.getElementById("dropdown-perfil");
+                if (menu.style.display == "none") {
+                    menu.style.display = "block";
+                } else {
+                    menu.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
+</html>
