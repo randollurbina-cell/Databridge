@@ -8,14 +8,14 @@ include "conexion.php"; // Este codigo corresponde al frontend de registro de us
         <head>
             <meta charset="UTF-8">
                 <title>Databridge</title>
-                <link rel="stylesheet" href="../Estilo/Estilo.css">
-                <link rel="icon" href="../Imagenes/Databridge.jpeg" type="jpeg">
+                <link rel="stylesheet" href="Estilo.css">
+                <link rel="icon" href="Databridge.jpeg" type="jpeg">
         </head>
         <body>
             <div class="registro">
-                <img src="../Imagenes/Databridge.jpeg" width="100" class="logo">
+                <img src="Databridge.jpeg" width="100" class="logo">
             <h1>  Registro Usuario </h1>
-            <form  action = "../Backend/Registro_backend.php" method = "post"> 
+            <form  action = "Registro_backend.php" method = "post"> 
              <label> Nombre </label>
                 <br>
                 <input type="text" name = "nombre" placeholder="Ingrese su nombre" required>
