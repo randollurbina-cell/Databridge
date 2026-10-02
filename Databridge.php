@@ -1,3 +1,27 @@
+<?php
+/* Unimos el backend php con el html en un solo archivos, para poder mostrar */
+if(isset($_FILES['archivo'])){
+$formato_origen = $_POST['formato_origen'];
+$formato_destino = $_POST['formato_destino'];
+$carpeta = "archivos_subidos/";
+
+    $nombre_archivo = $_FILES['archivo']['name'];
+    $ruta_temporal = $_FILES['archivo']['tmp_name'];
+$destino = $carpeta . $nombre_archivo;
+
+move_uploaded_file($ruta_temporal, $destino);
+
+$destino_seguro = escapeshellarg($destino);   /* esto se hace porque los nombre de los archivos
+casi siempre llevan espacios, la consola usa los espacios para separar y python
+creera que se le envian tres datos diferentes, cuando es uno, por eso se usa la funcion de php escapeshellarg()*/
+
+$comando = "python conversor.py $destino_seguro";  
+$respuesta = shell_exec($comando);
+
+$destino_transformado = str_replace(".docx", ".pdf", $destino);
+}
+?>
+
 <!--Interfaz principal databridge para usuarios gratis-->
 <!DOCTYPE html>
 <html>
@@ -36,6 +60,9 @@
 
 
             <!-- AREA DE TRABAJO: DOS COLUMNAS -->
+            
+            <form action="Databridge.php" method="post" enctype="multipart/form-data">
+
             <div class="area-trabajo">
 
                 <!-- COLUMNA IZQUIERDA: ORIGINAL -->
@@ -43,12 +70,12 @@
                     <h3>Original</h3>
                     <label>Formato de entrada</label>
                     <br><br>
-                    <select class="select-formato">
+                    <select class="select-formato" name = "formato_origen" required>
                         <option value="">Selecciona formato</option>
                         <option value="word">Word </option>
-                        <option value="pdf">PDF </option>
-                        <option value="excel">Excel </option>
-                        <option value="ppt">PowerPoint </option>
+                        <option value=""> </option>
+                        <option value=""> </option>
+                        <option value=""></option>
                     </select>
                     <br><br>
 
@@ -57,38 +84,41 @@
                         <br>
                         <p>Arrastra tu archivo aqui</p>
                         <p>o</p>
-                        <button type="button" class="botonNavbar">Adjuntar Archivo</button>
-                        <br><br>
+                        <input type="file" name = "archivo" class="botonNavbar">
+                           <br><br>
                     </div>
 
                     <br>
                     <label>Tamaño: 0 MB</label>
                     <br><br>
                 </div>
-                                    <button type="button"class="aceptar">Aceptar</button>
-
+                    <button type="submit" class="aceptar"> Transformar </button>
 
                 <!-- COLUMNA DERECHA: DESTINO -->
                 <div class="caja-archivo">
                     <h3>Destino</h3>
                     <label>Formato de salida</label>
                     <br><br>
-                    <select class="select-formato">
+                    <select class="select-formato" name = "formato_destino" required>
                         <option value="">Selecciona conversion</option>
                         <option value="word-pdf"> PDF</option>
-                        <option value="pdf-word"> Word</option>
-                        <option value="word-excel"> Excel</option>
-                        <option value="excel-word"> Word</option>
-                        <option value="pdf-ppt">PowerPoint</option>
-                        <option value="ppt-pdf"> PDF</option>
+                        <option value=""> </option>
+                        <option value=""> </option>
+                        <option value=""> </option>
+                        <option value=""></option>
+                        <option value=""></option>
                     </select>
                     <br><br>
 
                     <!-- Zona de vista previa -->
                     <div class="zona-archivo">
-                        <br>
+                        <?php if(isset($destino_transformado)):?>
+                        <p> Archivo transformado: </p>
+                        <p><b> <?php echo basename($destino_transformado); ?> </p></b>
+                        <?php else: ?>
                         <p>El archivo convertido</p>
                         <p>aparecera aqui</p>
+                        <?php endif; ?>
                         <br><br>
                     </div>
 
@@ -97,6 +127,7 @@
                 </div>
 
             </div>
+            </form>
 
             <!-- BOTONES DE ACCION -->
             <div class="barra-acciones">

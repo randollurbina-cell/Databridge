@@ -20,10 +20,10 @@ if($resultado -> num_rows > 0){
             header("Location: Plan.html");
             exit();
     }elseif($id_plan == 1){
-        header("Location: Databridge.html");
+        header("Location:  Databridge_Premium.html");
         exit();
     }elseif($id_plan == 2){
-        header("Location: Databridge_Premium.html");
+        header("Location: Databridge.php");
         exit();
     }
     }else{

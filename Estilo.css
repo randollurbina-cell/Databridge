@@ -438,4 +438,10 @@ input{
   background-attachment: fixed;
 }
 
+.titulo{
+    color:#00ff08;
+    font-size: 35px;
+    -webkit-text-stroke: 1.5px #000000;
+    text-shadow: 8px 8px  8px #00ff08;
+}
 
