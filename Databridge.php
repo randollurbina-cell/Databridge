@@ -137,10 +137,18 @@ $destino_transformado = str_replace(".docx", ".pdf", $destino);
 
             <!-- BOTONES DE ACCION -->
             <div class="barra-acciones">
+                <?php if(isset($destino_transformado)):?>
+                <a href="<?php echo $destino_transformado; ?>" target="_blank"> > <button type="button" class="botonNavbar">Vista Previa</button></a>
+                <?php else: ?>
                 <button type="button" class="botonNavbar">Vista Previa</button>
+                <?php endif; ?>
                 <button type="button" class="botonNavbar">Guardar</button>
                 <button type="button" class="botonNavbar">Compartir</button>
+                 <?php if(isset($destino_transformado)):?>
+                <a href="<?php echo $destino_transformado; ?>" download>  <button type="button" class="botonNavbar">Descargar</button></a>
+                <?php else: ?>
                 <button type="button" class="botonNavbar">Descargar</button>
+                <?php endif; ?>
             </div>
 
         </div>
