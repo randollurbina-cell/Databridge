@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['Id_usuario'])){
+    echo "No ha iniciado sesion";
+    exit();
+}
 /* Unimos el backend php con el html en un solo archivos, para poder mostrar */
 if(isset($_FILES['archivo'])){
 $formato_origen = $_POST['formato_origen'];
