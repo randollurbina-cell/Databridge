@@ -21,10 +21,21 @@ $destino_seguro = escapeshellarg($destino);   /* esto se hace porque los nombre 
 casi siempre llevan espacios, la consola usa los espacios para separar y python
 creera que se le envian tres datos diferentes, cuando es uno, por eso se usa la funcion de php escapeshellarg()*/
 
+if($formato_origen == "docx" && $formato_destino == "docx-pdf"){
 $comando = "python conversor.py $destino_seguro";  
 $respuesta = shell_exec($comando);
 
 $destino_transformado = str_replace(".docx", ".pdf", $destino);
+
+}elseif($formato_origen = "pdf" && $formato_destino == "pdf-docx"){
+    $comando = "python conversor2.py $destino_seguro";  
+$respuesta = shell_exec($comando);
+
+$destino_transformado = str_replace(".pdf", ".docx", $destino);
+}else{
+    echo "Transformacion no disponible";
+    exit();
+}
 }
 ?>
 
@@ -78,8 +89,8 @@ $destino_transformado = str_replace(".docx", ".pdf", $destino);
                     <br><br>
                     <select class="select-formato" name = "formato_origen" required>
                         <option value="">Selecciona formato</option>
-                        <option value="word">Word </option>
-                        <option value=""> </option>
+                        <option value="docx">Docx </option>
+                        <option value="pdf"> Pdf </option>
                         <option value=""> </option>
                         <option value=""></option>
                     </select>
@@ -107,8 +118,8 @@ $destino_transformado = str_replace(".docx", ".pdf", $destino);
                     <br><br>
                     <select class="select-formato" name = "formato_destino" required>
                         <option value="">Selecciona conversion</option>
-                        <option value="word-pdf"> PDF</option>
-                        <option value=""> </option>
+                        <option value="docx-pdf"> pdf </option>
+                        <option value="pdf-docx"> docx </option>
                         <option value=""> </option>
                         <option value=""> </option>
                         <option value=""></option>
@@ -138,12 +149,11 @@ $destino_transformado = str_replace(".docx", ".pdf", $destino);
             <!-- BOTONES DE ACCION -->
             <div class="barra-acciones">
                 <?php if(isset($destino_transformado)):?>
-                <a href="<?php echo $destino_transformado; ?>" target="_blank"> > <button type="button" class="botonNavbar">Vista Previa</button></a>
+                <a href="<?php echo $destino_transformado; ?>" target="_blank"> <button type="button" class="botonNavbar">Vista Previa</button></a>
                 <?php else: ?>
                 <button type="button" class="botonNavbar">Vista Previa</button>
                 <?php endif; ?>
-                <button type="button" class="botonNavbar">Guardar</button>
-                <button type="button" class="botonNavbar">Compartir</button>
+                <button type = "buttom" class = "botonNavbar"> Guardar </button>
                  <?php if(isset($destino_transformado)):?>
                 <a href="<?php echo $destino_transformado; ?>" download>  <button type="button" class="botonNavbar">Descargar</button></a>
                 <?php else: ?>
