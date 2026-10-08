@@ -7,9 +7,23 @@ if(!isset($_SESSION['Id_usuario'])){
 }
 /* Unimos el backend php con el html en un solo archivos, para poder mostrar */
 if(isset($_FILES['archivo'])){
+    
 $formato_origen = $_POST['formato_origen'];
 $formato_destino = $_POST['formato_destino'];
 $carpeta = "archivos_subidos/";
+
+$peso_bytes = $_FILES['archivo']['size'];
+
+$peso_kilobytes = $peso_bytes / 1024;
+
+$peso_megabytes = $peso_kilobytes / 1024;
+
+$peso_final = round($peso_megabytes,2);
+
+if($peso_final > 3){
+    header("Location:Cambiar_plan.html");
+    exit();
+}
 
     $nombre_archivo = $_FILES['archivo']['name'];
     $ruta_temporal = $_FILES['archivo']['tmp_name'];
@@ -27,11 +41,32 @@ $respuesta = shell_exec($comando);
 
 $destino_transformado = str_replace(".docx", ".pdf", $destino);
 
+if(file_exists($destino_transformado)){
+
+$peso_transformado_bytes = filesize($destino_transformado);
+
+$peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
+
+$peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
+
+$peso_transformado_final = round($peso_transformado_megabytes,2);
+}
 }elseif($formato_origen = "pdf" && $formato_destino == "pdf-docx"){
     $comando = "python conversor2.py $destino_seguro";  
 $respuesta = shell_exec($comando);
 
 $destino_transformado = str_replace(".pdf", ".docx", $destino);
+
+if(file_exists($destino_transformado)){
+
+$peso_transformado_bytes = filesize($destino_transformado);
+
+$peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
+
+$peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
+
+$peso_transformado_final = round($peso_transformado_megabytes,2);
+}
 }else{
     echo "Transformacion no disponible";
     exit();
@@ -89,8 +124,8 @@ $destino_transformado = str_replace(".pdf", ".docx", $destino);
                     <br><br>
                     <select class="select-formato" name = "formato_origen" required>
                         <option value="">Selecciona formato</option>
-                        <option value="docx">Docx </option>
-                        <option value="pdf"> Pdf </option>
+                        <option value="docx">docx </option>
+                        <option value="pdf"> pdf </option>
                         <option value=""> </option>
                         <option value=""></option>
                     </select>
@@ -106,7 +141,14 @@ $destino_transformado = str_replace(".pdf", ".docx", $destino);
                     </div>
 
                     <br>
-                    <label>Tamaño: 0 MB</label>
+                    <label> Tamaño:
+                        <?php if(isset($peso_final)){
+                            echo $peso_final;
+                        }else{
+                            echo "0";
+                        }
+                        ?>
+                        Mb</label>
                     <br><br>
                 </div>
                     <button type="submit" class="aceptar"> Transformar </button>
@@ -140,7 +182,14 @@ $destino_transformado = str_replace(".pdf", ".docx", $destino);
                     </div>
 
                     <br>
-                    <label>Tamaño: 0 MB</label>
+                    <label>Tamaño: 
+                    <?php if(isset($peso_transformado_final)){
+                        echo $peso_transformado_final;
+                    }else{
+                        echo "0";
+                    }
+                    ?>
+                    Mb </label>
                 </div>
 
             </div>
