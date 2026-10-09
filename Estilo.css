@@ -1,7 +1,7 @@
 /* Este codigo corresponde al estilo de css*/
 
 body{
-    background-image: url(Garrobo.jpeg);
+    background-image: url(premium.jpeg);
     text-align:center;
 } 
 
@@ -443,5 +443,19 @@ input{
     font-size: 35px;
     -webkit-text-stroke: 1.5px #000000;
     text-shadow: 8px 8px  8px #00ff08;
+}
+
+.cambiar_plan{
+     background-color: #cecece;
+    border: 3px  solid #001eff;
+    box-shadow: 8px 8px 10px #001eff;
+    border-radius: 20px;
+    width: 70%;
+    max-width: 800px;
+    min-height: 300px;
+    margin: 100px auto;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
