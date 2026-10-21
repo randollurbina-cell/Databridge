@@ -50,7 +50,7 @@ if(!preg_match($patron2, $Numero_tarjeta)){
 }
 
 if(!preg_match($patron3, $Fecha_vencimiento)){
-    echo "Ingrese la fecha de vencimiento en el formato MM/AA y meses validos";
+    echo "Ingrese la fecha de vencimiento en el formato MM/AA y fecha valida";
     exit();
 }
 

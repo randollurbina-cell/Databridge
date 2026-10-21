@@ -5,7 +5,9 @@ if(!isset($_SESSION['Id_usuario'])){
     echo "No ha iniciado sesion";
     exit();
 }
-/* Unimos el backend php con el html en un solo archivos, para poder mostrar */
+/* Unimos el backend php con el html en un solo archivos, para poder mostrar la interfaz sin la necesidad de 
+que el codigo php se ejecute primero */
+
 if(isset($_FILES['archivo'])){
     
 $formato_origen = $_POST['formato_origen'];
@@ -50,6 +52,8 @@ $peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
 $peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
 
 $peso_transformado_final = round($peso_transformado_megabytes,2);
+}else{
+    echo "Error en transformacion";
 }
 }elseif($formato_origen = "pdf" && $formato_destino == "pdf-docx"){
     $comando = "python conversor2.py $destino_seguro";  
@@ -97,13 +101,8 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
 
                 <!-- MENU PERFIL -->
                 <div class="contenedor-perfil">
-                    <button type="button" class="botonNavbar" onclick="togglePerfil()">Mi Perfil ▾</button>
+                    <a href="perfil.php"><button type="button" class="botonNavbar">Mi Perfil ▾</button></a>
                     <div class="dropdown-perfil" id="dropdown-perfil" style="display:none">
-                        <p><b>Nombre:</b> Usuario</p>
-                        <p><b>Cargo:</b> Cargo</p>
-                        <p><b>Empresa:</b> Empresa</p>
-                        <br>
-                        <a href="login.html"><button type="button" class="botonNavbar">Cerrar Sesion</button></a>
                     </div>
                 </div>
 
