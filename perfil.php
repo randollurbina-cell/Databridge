@@ -62,7 +62,7 @@ $consulta = $conexion -> query($sql);
             echo $tipo_plan;
             ?>
             <br><br>
-            <a href = "inicio_sesion.html"> <button type="button" class="botonNavbar"> Cerrar Sesión </button> </a>
+            <a href = "cerrar_sesion.php"> <button type="button" class="botonNavbar"> Cerrar Sesión </button> </a>
 </div  >
     </body>
 </html>

@@ -83,7 +83,7 @@ values ('$Nombre_tarjeta', '$Numero_tarjeta', '$Fecha_vencimiento', '$Codigo_seg
 if($conexion ->query($sql) === TRUE){
     $Sql2 = "update Usuario set Id_plan = $id_plan_seleccionado  where Id_usuario = $id_usuario";
     $conexion -> query($Sql2);
-    header("Location: Databridge_premium.html");
+    header("Location: Databridge_Premium.php");
     exit();
 }else{
     echo "Error al realizar el pago: " . $conexion->error;

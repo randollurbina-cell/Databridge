@@ -55,24 +55,10 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
 }else{
     echo "Error en transformacion";
 }
-}elseif($formato_origen = "pdf" && $formato_destino == "pdf-docx"){
-    $comando = "python conversor2.py $destino_seguro";  
-$respuesta = shell_exec($comando);
 
-$destino_transformado = str_replace(".pdf", ".docx", $destino);
-
-if(file_exists($destino_transformado)){
-
-$peso_transformado_bytes = filesize($destino_transformado);
-
-$peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
-
-$peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
-
-$peso_transformado_final = round($peso_transformado_megabytes,2);
-}
-}else{
+}elseif($formato_origen == "pdf" && $formato_destino == "pdf-docx"){
     echo "Transformacion no disponible";
+    header("Location: Cambiar_plan.html");
     exit();
 }
 }
@@ -96,7 +82,6 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
                 <span class="titulo-navbar">Databridge</span>
             </div>
             <div class="navbar-derecha">
-                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='flex'">Historial</button>
                 <a href="plan.html"><button type="button" class="botonNavbar">Cambiar Plan</button></a>
 
                 <!-- MENU PERFIL -->
@@ -198,44 +183,9 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
             <div class="barra-acciones">
                 <?php if(isset($destino_transformado)):?>
                 <a href="<?php echo $destino_transformado; ?>" target="_blank"> <button type="button" class="botonNavbar">Vista Previa</button></a>
-                <?php else: ?>
-                <button type="button" class="botonNavbar">Vista Previa</button>
-                <?php endif; ?>
-                <button type = "buttom" class = "botonNavbar"> Guardar </button>
-                 <?php if(isset($destino_transformado)):?>
-                <a href="<?php echo $destino_transformado; ?>" download>  <button type="button" class="botonNavbar">Descargar</button></a>
-                <?php else: ?>
-                <button type="button" class="botonNavbar">Descargar</button>
                 <?php endif; ?>
             </div>
-
-        </div>
-
-
-        <!-- HISTORIAL -->
-        <div class="fondo-modal" id="modal-historial" style="display:none">
-            <div class="modal">
-                <h2>Historial de Transformaciones</h2>
-                <br>
-                <table class="tabla-historial">
-                </table>
-                <br>
-                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='none'">Cerrar</button>
             </div>
-        </div>
-
-
-        <!-- Script para abrir y cerrar el menu de perfil -->
-        <script>
-            function togglePerfil() {
-                let menu = document.getElementById("dropdown-perfil");
-                if (menu.style.display == "none") {
-                    menu.style.display = "block";
-                } else {
-                    menu.style.display = "none";
-                }
-            }
-        </script>
-
     </body>
 </html>
+

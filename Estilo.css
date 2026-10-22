@@ -1,8 +1,11 @@
 /* Este codigo corresponde al estilo de css*/
 
 body{
+    background-image: url(Garrobo.jpeg);
     text-align:center;
-    background-color: #00e6d6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 } 
 
 
