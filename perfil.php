@@ -7,9 +7,10 @@ if(!isset($_SESSION['Id_usuario'])){
     exit();
 }
 
-$Id_Usurario = $_SESSION['Id_usuario'];
+$Id_Usuario = $_SESSION['Id_usuario'];
 
-$sql = "select Nombre_Usuario, Correo_Empresarial, Nombre, Apellido from Usuario where Id_usuario = '$Id_Usurario'";
+$sql = "select U.Nombre_Usuario, U.Correo_Empresarial, U.Nombre, U.Apellido, P.Nombre_Plan from usuario U
+         Join plan_usuario P on U.Id_plan = P.Id_plan where U.Id_usuario = '$Id_Usuario'";
 $consulta = $conexion -> query($sql);
 
     if($consulta && $consulta -> num_rows > 0){
@@ -18,6 +19,7 @@ $consulta = $conexion -> query($sql);
         $apellido = $fila['Apellido'];
         $nombre_usuario = $fila['Nombre_Usuario'];
         $correo = $fila['Correo_Empresarial'];
+        $tipo_plan = $fila['Nombre_Plan'];
     }else{
         echo "no hay valores en los campos de la tabla usuario";
     }
@@ -54,9 +56,14 @@ $consulta = $conexion -> query($sql);
             <?php
             echo $correo;
             ?>
+            <br>
+            <h3> Tipo de plan: </h3>
+            <?php
+            echo $tipo_plan;
+            ?>
             <br><br>
             <a href = "inicio_sesion.html"> <button type="button" class="botonNavbar"> Cerrar Sesión </button> </a>
-</div>
+</div  >
     </body>
 </html>
 
