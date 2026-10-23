@@ -150,7 +150,7 @@ $sql_historial = "Insert into historial_conversion
                 <a href="historial.php"><button type="button" class="botonNavbar">Historial</button></a>
                 <!-- MENU PERFIL -->
                 <div class="contenedor-perfil">
-                    <a href="perfil.php"><button type="button" class="botonNavbar">Mi Perfil ▾</button></a>
+                    <a href="perfil_premium.php"><button type="button" class="botonNavbar">Mi Perfil ▾</button></a>
                     <div class="dropdown-perfil" id="dropdown-perfil" style="display:none">
                     </div>
                 </div>
