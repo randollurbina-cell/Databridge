@@ -118,8 +118,7 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
                     <!-- Zona de adjuntar archivo -->
                     <div class="zona-archivo">
                         <br>
-                        <p>Arrastra tu archivo aqui</p>
-                        <p>o</p>
+                        <p> Selecciona el archivo a convertir </p>
                         <input type="file" name = "archivo" class="botonNavbar">
                            <br><br>
                     </div>

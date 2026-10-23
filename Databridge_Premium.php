@@ -1,4 +1,5 @@
 <?php
+include "conexion.php";
 session_start();
 
 if(!isset($_SESSION['Id_usuario'])){
@@ -27,13 +28,13 @@ if($peso_final > 50){
     exit();
 }
 
-    $nombre_archivo = $_FILES['archivo']['name'];
-    $ruta_temporal = $_FILES['archivo']['tmp_name'];
+$nombre_archivo = $_FILES['archivo']['name'];
+$ruta_temporal = $_FILES['archivo']['tmp_name'];
 $destino = $carpeta . $nombre_archivo;
 
 move_uploaded_file($ruta_temporal, $destino);
 
-$destino_seguro = escapeshellarg($destino);   /* esto se hace porque los nombre de los archivos
+$destino_seguro = escapeshellarg($destino);  /* esto se hace porque los nombre de los archivos
 casi siempre llevan espacios, la consola usa los espacios para separar y python
 creera que se le envian tres datos diferentes, cuando es uno, por eso se usa la funcion de php escapeshellarg()*/
 
@@ -52,6 +53,18 @@ $peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
 $peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
 
 $peso_transformado_final = round($peso_transformado_megabytes,2);
+
+
+/* Guardamos los datos de los archivos en la variable superglobal para 
+ocuparlos en la consulta de registro en la base de datos unicamente
+cuando el usuario presiona el boton "Guardar" */
+
+$_SESSION['ruta_archivos_subidos'] = $destino_seguro;           
+$_SESSION['ruta_archivos_convertido'] = $destino_transformado;
+$_SESSION['peso_archivo_subido'] = $peso_final;
+$_SESSION['peso_archivo_convertido'] = $peso_transformado_final;
+$_SESSION['id_tipo_conversion'] = 1;
+
 }else{
     echo "Error en transformacion";
 }
@@ -70,12 +83,50 @@ $peso_transformado_kilobytes = $peso_transformado_bytes / 1024;
 $peso_transformado_megabytes = $peso_transformado_kilobytes / 1024;
 
 $peso_transformado_final = round($peso_transformado_megabytes,2);
+
+/* Guardamos los datos de los archivos en la variable superglobal para 
+ocuparlos en la consulta de registro en la base de datos unicamente
+cuando el usuario presiona el boton "Guardar" */
+
+$_SESSION['ruta_archivos_subidos'] = $destino_seguro;
+$_SESSION['ruta_archivos_convertido'] = $destino_transformado;
+$_SESSION['peso_archivo_subido'] = $peso_final;
+$_SESSION['peso_archivo_convertido'] = $peso_transformado_final;
+$_SESSION['id_tipo_conversion'] = 2;
 }
 }else{
     echo "Transformacion no disponible";
     exit();
 }
 }
+
+/* Consulta Sql para registrar el historial de archivos subidos y transformados */
+
+if(isset($_POST['guardar'])){
+    if(isset($_SESSION['ruta_archivos_subidos']) && (isset($_SESSION['ruta_archivos_convertido']))){
+        $id_usuario = $_SESSION['Id_usuario'];
+        $archivo_subido = $_SESSION['ruta_archivos_subidos'];
+        $archivo_convertido = $_SESSION['ruta_archivos_convertido'];
+        $peso_archivo_subido = $_SESSION['peso_archivo_subido'];
+        $peso_archivo_convertido = $_SESSION['peso_archivo_convertido'];
+        $id_conversion = $_SESSION['id_tipo_conversion'];
+
+        /*  Consulta SQL */
+$sql_historial = "Insert into historial_conversion 
+(Ruta_Archivo_Subido, Ruta_Archivo_Convertido, Tamano_Archivo_Original, tamano_archivo_destino, Id_usuario, Id_tipo_conversion)
+ values('$archivo_subido','$archivo_convertido','$peso_archivo_subido','$peso_archivo_convertido','$id_usuario','$id_conversion')";
+
+ if($conexion -> query ($sql_historial) === TRUE){
+
+ }else{
+    echo "Error en el registro de la base de datos" . $conexion -> error;
+ }
+    }
+}
+
+
+
+
 ?>
 
 <!--Interfaz principal databridge para usuarios gratis-->
@@ -96,7 +147,7 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
                 <span class="titulo-navbar">Databridge</span>
             </div>
             <div class="navbar-derecha">
-                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='flex'">Historial</button>
+                <a href="historial.php"><button type="button" class="botonNavbar">Historial</button></a>
                 <!-- MENU PERFIL -->
                 <div class="contenedor-perfil">
                     <a href="perfil.php"><button type="button" class="botonNavbar">Mi Perfil ▾</button></a>
@@ -131,8 +182,7 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
                     <!-- Zona de adjuntar archivo -->
                     <div class="zona-archivo">
                         <br>
-                        <p>Arrastra tu archivo aqui</p>
-                        <p>o</p>
+                        <p>Selecciona el archivo a convertir</p>
                         <input type="file" name = "archivo" class="botonNavbar">
                            <br><br>
                     </div>
@@ -194,12 +244,24 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
 
             <!-- BOTONES DE ACCION -->
             <div class="barra-acciones">
+
+                <!-- BOTON VISTA PREVIA -->
                 <?php if(isset($destino_transformado)):?>
                 <a href="<?php echo $destino_transformado; ?>" target="_blank"> <button type="button" class="botonNavbar">Vista Previa</button></a>
                 <?php else: ?>
                 <button type="button" class="botonNavbar">Vista Previa</button>
                 <?php endif; ?>
-                <button type = "buttom" class = "botonNavbar"> Guardar </button>
+
+                <!-- BOTON GUARDAR -->
+                 <?php if(isset($destino_transformado)):?>
+                    <form action="Databridge_Premium.php" method="post">
+                 <button type="Submit" class="botonNavbar" name="guardar"> Guardar </button>
+                 </form>
+                <?php else: ?>
+                <button type = "button" class = "botonNavbar"> Guardar </button>
+                <?php endif; ?>
+
+                <!-- BOTON DESCARGAR -->
                  <?php if(isset($destino_transformado)):?>
                 <a href="<?php echo $destino_transformado; ?>" download>  <button type="button" class="botonNavbar">Descargar</button></a>
                 <?php else: ?>
@@ -208,17 +270,3 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
             </div>
 
         </div>
-
-
-        <!-- HISTORIAL -->
-        <div class="fondo-modal" id="modal-historial" style="display:none">
-            <div class="modal">
-                <h2>Historial de Transformaciones</h2>
-                <br>
-                <table class="tabla-historial">
-                </table>
-                <br>
-                <button type="button" class="botonNavbar" onclick="document.getElementById('modal-historial').style.display='none'">Cerrar</button>
-            </div>
-        </div>
-
