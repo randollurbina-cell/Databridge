@@ -450,13 +450,15 @@ input{
     border: 3px  solid #001eff;
     box-shadow: 8px 8px 10px #001eff;
     border-radius: 20px;
-    width: 70%;
-    max-width: 800px;
-    min-height: 300px;
-    margin: 100px auto;
+    width: 400px;
+    height: 200px;
+    margin: 200px;
     padding: 40px;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     text-align: center;
+    font-size: 30px;
 }
 
 .perfil{

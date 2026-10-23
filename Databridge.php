@@ -58,7 +58,7 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
 
 }elseif($formato_origen == "pdf" && $formato_destino == "pdf-docx"){
     echo "Transformacion no disponible";
-    header("Location: Cambiar_plan.html");
+    header("Location: Cambiar_plan2.html");
     exit();
 }
 }
