@@ -404,6 +404,7 @@ input{
     width: 100%;
     border-collapse: collapse;
     text-align: center;
+    background-color: white;
 }
 
 .tabla-historial th {
@@ -415,10 +416,6 @@ input{
 .tabla-historial td {
     border: 1px solid #3700ff;
     padding: 10px;
-}
-
-.tabla-historial tr:nth-child(even) {
-    background-color: #d8d8d8;
 }
 
 .registro2{
@@ -474,4 +471,9 @@ input{
     padding: 40px;
     box-sizing: border-box;
     text-align: center;
+}
+
+.titulo{
+    color: white;
+    text-shadow: 0px 0px 1spx; 
 }
