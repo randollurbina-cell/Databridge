@@ -37,7 +37,7 @@ $consulta = $conexion -> query($sql);
          <header class = "cabezera">
                 <h1> Perfil del Usuario </h1>
                 </header>
-        <div class="perfil">
+        <div class="perfil_permium">
             <br>
             <h3> Nombres: </h3>
             <?php

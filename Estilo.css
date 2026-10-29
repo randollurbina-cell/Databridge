@@ -1,7 +1,7 @@
 /* Este codigo corresponde al estilo de css*/
 
 body{
-    background-image: url(Garrobo.jpeg);
+    background-image: url(fondo.jpg);
     text-align:center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,8 +12,8 @@ body{
 
 .registro{
     background-color: #cecece;
-    border: 2px solid #00ff4c;
-    box-shadow: 8px 8px 10px #00ff66;
+    border: 2px solid #65fffa;
+    box-shadow: 8px 8px 10px #65fffa;
     border-radius: 20px;
     width: 250px;
     height: auto;
@@ -85,8 +85,8 @@ input{
 
 .Bienvenida{
     background-color: #cecece ;
-    border:2px solid #00ff40;
-    box-shadow: 8px 8px 10px  #00ff1e;
+    border:2px solid #00e6d6;
+    box-shadow: 8px 8px 10px 2px  #03ecf8;
     border-radius: 10px;
     width: 500px;
     margin: 200px auto;
@@ -95,8 +95,8 @@ input{
 
 .Login{
     background-color: #cecece;
-    border:2px solid #00ff2a;
-    box-shadow: 8px 8px 10px #00ff48;
+    border:2px solid #00e6d6;
+    box-shadow: 8px 8px 10px #03ecf8;
     border-radius: 10px;
     width: 500px;
     margin: 200px auto;
@@ -339,7 +339,7 @@ input{
 .caja-archivo {
     background-color: #cecece;
     border: 2px solid #3700ff;
-    box-shadow: 8px 8px 10px #3700ff;
+    box-shadow: 8px 8px 10px #00e6d6;
     border-radius: 10px;
     width: 340px;
     padding: 15px;
@@ -348,7 +348,7 @@ input{
 
 /* ZONA DE ARCHIVO (interior de cada caja) */
 .zona-archivo {
-    border: 2px solid #0800ff;
+    border: 2px solid white;
     border-radius: 10px;
     min-height: 150px;
     display: flex;
@@ -390,7 +390,7 @@ input{
 .modal {
     background-color: #cecece;
     border: 2px solid #3700ff;
-    box-shadow: 8px 8px 10px #3700ff;
+    box-shadow: 8px 8px 10px #00e6d6;
     border-radius: 10px;
     padding: 30px;
     width: 650px;
@@ -408,20 +408,20 @@ input{
 }
 
 .tabla-historial th {
-    background-color: #3700ff;
-    color: white;
+    background-color: #00e6d6;
+    color: black;
     padding: 10px;
 }
 
 .tabla-historial td {
-    border: 1px solid #3700ff;
+    border: 2px solid black;
     padding: 10px;
 }
 
 .registro2{
     background-color: #cecece;
-    border: 2px solid #00ff08;
-    box-shadow: 8px 8px 10px #00ff77;
+    border: 2px solid #00e6d6;
+    box-shadow: 8px 8px 10px #00e6d6;
     border-radius: 20px;
     width: 250px;
     height: auto;
@@ -448,7 +448,7 @@ input{
 .cambiar_plan{
      background-color: #cecece;
     border: 3px  solid #001eff;
-    box-shadow: 8px 8px 10px #001eff;
+    box-shadow: 8px 8px 10px #00e6d6;
     border-radius: 20px;
     width: 400px;
     height: 200px;
@@ -464,7 +464,20 @@ input{
 .perfil{
     background-color: #cecece;
     border: 3px  solid #001eff;
-    box-shadow: 8px 8px 10px #001eff;
+    box-shadow: 8px 8px 10px #00e6d6;
+    border-radius: 20px;
+    width: 400px;
+    height: 580px;
+    margin: 100px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.perfil_permium{
+  background-color: #cecece;
+    border: 3px  solid #001eff;
+    box-shadow: 8px 8px 10px #00e6d6;
     border-radius: 20px;
     width: 400px;
     height: 500px;
@@ -480,8 +493,9 @@ input{
 }
 
 .cabezera{
-    background: linear-gradient(to right, #1e39ff, #65ff6a);
+    background: linear-gradient(to right, #1e39ff, #00e6d6);
     color: rgb(0, 0, 0);
     text-align: center;
     text-shadow: 0px 0px 2px white;
+    box-shadow: 2px 2px  8px #00e6d6;
 }

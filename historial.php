@@ -38,6 +38,7 @@ $sql = "select h.Ruta_Archivo_Subido, h.Ruta_Archivo_convertido, h.Tamano_Archiv
                     <th>Tamaño Orig.</th>
                     <th>Tamaño Dest.</th>
                     <th>Fecha</th>
+                    <th>Acción</th>
                 </tr>
             <?php
             /* Usamos el while para mostrar tantas filas como registros tenga el usuario */
@@ -47,8 +48,12 @@ $sql = "select h.Ruta_Archivo_Subido, h.Ruta_Archivo_convertido, h.Tamano_Archiv
                         <td><?php echo basename($fila['Ruta_Archivo_convertido']); ?></td>
                         <td><?php echo $fila['Tamano_Archivo_Original']; ?> Mb</td>
                         <td><?php echo $fila['tamano_archivo_destino']; ?> Mb</td>
-                        <td><?php echo $fila['Fecha_Conversion']; ?>
-                    </td>
+                        <td><?php echo $fila['Fecha_Conversion']; ?></td>
+                        <td>
+                            <a href="<?php echo $fila['Ruta_Archivo_convertido']; ?>" download>
+                                <button type="button" class="aceptar">Descargar</button></a>
+                            </a>
+                        </td>
                     </tr>
             <?php endwhile; ?>
         </table>
