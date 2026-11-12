@@ -71,14 +71,14 @@ $peso_transformado_final = round($peso_transformado_megabytes,2);
         <meta charset="utf-8">
         <title>Databridge</title>
         <link rel="stylesheet" href="Estilo.css">
-        <link rel="icon" href="Databridge.jpeg" type="jpeg">
+        <link rel="icon" href="logo2.jpeg" type="jpeg">
     </head>
     <body>
 
         <!-- BARRA DE NAVEGACION -->
         <div class="navbar">
             <div class="navbar-izquierda">
-                <img src="Databridge.jpeg" width="40" class="logo">
+                <img src="logo2.jpeg" width="40" class="logo">
                 <span class="titulo-navbar">Databridge</span>
             </div>
             <div class="navbar-derecha">

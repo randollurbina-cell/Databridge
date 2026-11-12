@@ -94,6 +94,12 @@ $_SESSION['peso_archivo_subido'] = $peso_final;
 $_SESSION['peso_archivo_convertido'] = $peso_transformado_final;
 $_SESSION['id_tipo_conversion'] = 2;
 }
+
+/* falta seguir trabajando */
+elseif($formato_origen == "pttx" && $formato_destino == "pttx-pdf"){
+
+}
+
 }else{
     echo "Transformacion no disponible";
     exit();
@@ -136,14 +142,14 @@ $sql_historial = "Insert into historial_conversion
         <meta charset="utf-8">
         <title>Databridge</title>
         <link rel="stylesheet" href="Estilo.css">
-        <link rel="icon" href="Databridge.jpeg" type="jpeg">
+        <link rel="icon" href="logo2.jpeg" type="jpeg">
     </head>
     <body class = "premium">
 
         <!-- BARRA DE NAVEGACION -->
         <div class="navbar">
             <div class="navbar-izquierda">
-                <img src="Databridge.jpeg" width="40" class="logo">
+                <img src="logo2.jpeg" width="40" class="logo">
                 <span class="titulo-navbar">Databridge</span>
             </div>
             <div class="navbar-derecha">
@@ -174,7 +180,7 @@ $sql_historial = "Insert into historial_conversion
                         <option value="">Selecciona formato</option>
                         <option value="docx">docx </option>
                         <option value="pdf"> pdf </option>
-                        <option value=""> </option>
+                        <option value="pttx"> pttx </option>
                         <option value=""></option>
                     </select>
                     <br><br>
@@ -209,7 +215,7 @@ $sql_historial = "Insert into historial_conversion
                         <option value="">Selecciona conversion</option>
                         <option value="docx-pdf"> pdf </option>
                         <option value="pdf-docx"> docx </option>
-                        <option value=""> </option>
+                        <option value="pttx-pdf"> pdf </option>
                         <option value=""> </option>
                         <option value=""></option>
                         <option value=""></option>

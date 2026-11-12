@@ -9,11 +9,11 @@ include "conexion.php"; // Este codigo corresponde al frontend de registro de us
             <meta charset="UTF-8">
                 <title>Databridge</title>
                 <link rel="stylesheet" href="Estilo.css">
-                <link rel="icon" href="Databridge.jpeg" type="jpeg">
+                <link rel="icon" href="logo2.jpeg" type="jpeg">
         </head>
         <body>
             <div class="registro">
-                <img src="Databridge.jpeg" width="100" class="logo">
+                <img src="logo2.jpeg" width="100" class="logo">
             <h1>  Registro Usuario </h1>
             <form  action = "Registro_backend.php" method = "post"> 
              <label> Nombre </label>
