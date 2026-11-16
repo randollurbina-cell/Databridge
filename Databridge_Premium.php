@@ -24,7 +24,10 @@ $peso_megabytes = $peso_kilobytes / 1024;
 $peso_final = round($peso_megabytes,2);
 
 if($peso_final > 50){
-    echo "Por el momento el sistema solamente soporta arrchivos de 50Mb";
+    echo "<script>
+    alert('Por el momento el sistema solamente soporta archivos de 50Mb maximo')
+    window.location.href='Databridge_Premium.php';
+    </script>";
     exit();
 }
 
@@ -101,7 +104,9 @@ elseif($formato_origen == "pttx" && $formato_destino == "pttx-pdf"){
 }
 
 }else{
-    echo "Transformacion no disponible";
+    echo "<script>alert('Transformacion no disponible por el momento')
+    window.location.href='Databridge_Premium.php';
+    </script>";
     exit();
 }
 }
@@ -125,7 +130,9 @@ $sql_historial = "Insert into historial_conversion
  if($conexion -> query ($sql_historial) === TRUE){
 
  }else{
-    echo "Error en el registro de la base de datos" . $conexion -> error;
+    echo "<script>('Error en el registro de la base de datos')
+    window.location.href='Databridge_Premium.php';
+    </script>";
  }
     }
 }

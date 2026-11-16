@@ -39,23 +39,30 @@ $patron3 = "/^(0[1-9]|1[0-2])\/\d{2}$/";
 $patron4 = "/^\d{3,4}$/";
 
 if(!preg_match($patron1, $Nombre_tarjeta)){
-    echo "Ingrese unicamente letras en este campo";
+    echo "<script> alert('Ingrese unicamente letras en este campo');
+    window.location.href='pago.html';
+    </script>";
     exit();
 }
 
 if(!preg_match($patron2, $Numero_tarjeta)){
-    echo "Debe ingresar unicamente la cantidad de numeros  exactos de la tarjeta que
-     ademas deben ser enteros";
+    echo "<script> alert('Debe ingresar unicamente la cantidad de numeros  exactos de la tarjeta que ademas deben ser enteros');
+     window.location.href='pago.html';
+     </script>";
     exit();
 }
 
 if(!preg_match($patron3, $Fecha_vencimiento)){
-    echo "Ingrese la fecha de vencimiento en el formato MM/AA y fecha valida";
+    echo "<script> alert('Ingrese la fecha de vencimiento en el formato MM/AA y fecha valida');
+    window.location.href='pago.html';
+    </script>";
     exit();
 }
 
 if(!preg_match($patron4, $Codigo_seguridad)){
-    echo "Solamente debe ingresar 3 o 4 digitos que tambien deben ser nuemeros enteros";
+    echo "<script> alert('Solamente debe ingresar 3 o 4 digitos que tambien deben ser nuemeros enteros');
+    window.location.href='pago.html';
+    </script>";
     exit();
 }
 
@@ -70,10 +77,14 @@ $mes_actual  = (int)date("m");
 $anio_actual = (int)date("y");
 
 if($anio_tarjeta < $anio_actual){
-    echo "La tarjeta es invalida, vencio el Año:".$anio_tarjeta;
+    echo "<script> alert('La tarjeta es invalida, vencio el Año:".$anio_tarjeta ."');
+    window.location.href='pago.html';
+    </script>";
     exit();
 }elseif($anio_tarjeta == $anio_actual && $mes_tarjeta < $mes_actual){
-    echo "Tarjeta invalida la tarjeta vencio este año en el mes:".$mes_tarjeta;
+    echo "<script> alert('Tarjeta invalida la tarjeta vencio este año en el mes: ".$mes_tarjeta ."');
+    window.location.href='pago.html';
+    </script>";
     exit();
 }
 

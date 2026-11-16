@@ -27,11 +27,15 @@ if($resultado -> num_rows > 0){
         exit();
     }
     }else{
-        echo "Error: Contraseña incorrecta";
+       echo "<script> alert ('Contraseña incorrecta') 
+               window.location.href = 'inicio_sesion.html';
+       </script>";
         exit();
     }
     }else{
-        echo "Error: Usuario no encontrado";
+        echo "<script> alert ('Usuario no encontrado')
+        window.location.href = 'inicio_sesion.html';
+        </script>";
         exit();
     }
 $conexion -> close();

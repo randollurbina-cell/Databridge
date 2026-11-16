@@ -18,32 +18,49 @@ $Apellido = trim($apellido);
 $Nombre_usuario = trim($nombre_usuario);
 
 $Patron = "/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/";
-$Patron2 = "/^[a-zA-Z0-9]+$/";
-
+$Patron2 = "/^[a-zA-Z0-9._-]{5,25}$/";
+$Patron3 = "/^\S{4,12}$/";
 
 if(!preg_match($Patron, $Nombre)){
-    echo "Ingrese unicamente letras en este campo";
+    echo "<script> alert('Unicamente ingrese letras en este campo')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
     exit();
 }
 if(!preg_match($Patron, $Apellido)){
-    echo "Ingrese unicamente letras en este campo";
+   echo "<script> alert('Unicamente ingrese letras en este campo')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
     exit();
 }
 
-If(!filter_var($correo_empresarial, FILTER_VALIDATE_EMAIL)){
-    echo "Ingrese un correo valido";
+if(!filter_var($correo_empresarial, FILTER_VALIDATE_EMAIL)){
+     echo "<script> alert('Ingrese un formato de correo electronnico valido')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
     exit();
 }
 
 if(!preg_match($Patron2, $Nombre_usuario)){
-    echo "No puede ingresar caracteres especiales en este campo";
+ echo "<script> alert('No puede ingresar letras con acentos y el nombre debe tener minimo 5 y maximo 25 caracteres')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
+    exit();
+}
+
+if(!preg_match($Patron3, $contrasena) || !preg_match($Patron3, $confirmar_contrasena) ){
+     echo "<script> alert('Debe ingresar minimo 4 y maximo 12 caracteres')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
     exit();
 }
 
 if($contrasena === $confirmar_contrasena){
     $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
 }else{
-    echo "Las contraseñas no coinciden";
+     echo "<script> alert('Las contraseñas no coinciden')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
     exit();
 }
     
@@ -58,7 +75,9 @@ if($conexion ->query($sql) === TRUE){
 
     exit();
 }else{
-    echo "Error al registrar el usuario";
+ echo "<script> alert('Error al registrar al usuario')
+    window.location.href = 'Registro_frontend.php';
+    </script>";
 }
 
 $conexion -> close();

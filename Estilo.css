@@ -439,10 +439,10 @@ input{
 }
 
 .titulo{
-    color:#00ff08;
+    color:#000000;
     font-size: 35px;
-    -webkit-text-stroke: 1.5px #000000;
-    text-shadow: 8px 8px  8px #00ff08;
+    -webkit-text-stroke: 0.2px white;
+    text-shadow: 8px 8px  8px #000dffac;
 }
 
 .cambiar_plan{
@@ -488,7 +488,7 @@ input{
 }
 
 .titulo{
-    color: white;
+    color: rgb(0, 0, 0);
     text-shadow: 0px 0px 1spx; 
 }
 
